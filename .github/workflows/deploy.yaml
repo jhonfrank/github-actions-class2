@@ -11,6 +11,7 @@ jobs:
         run: echo "Hola mundo"
         
   second-job:
+    needs: first-job
     runs-on: ubuntu-latest
 
     steps:
