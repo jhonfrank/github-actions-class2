@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Working dir
-        run: echo "$GITHUB_OUTPUT"
+        run: echo $GITHUB_OUTPUT
         
   second-job:
     needs: first-job
