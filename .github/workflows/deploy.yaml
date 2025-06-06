@@ -6,8 +6,8 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     
-    env:
-      MESSAGE: Hola mundo
+    outputs:
+      message: ${{ steps.step_1.outputs.my_variable }}
 
     steps:
       - name: Working dir
@@ -21,6 +21,9 @@ jobs:
     needs: first_job
     runs-on: ubuntu-latest
 
+    env:
+      MESSAGE: ${{ needs.first_job.outputs.message }}
+
     steps:
       - name: Hola mundo
-        run: echo "Hola mundo segundo"
+        run: echo "$MESSAGE"
