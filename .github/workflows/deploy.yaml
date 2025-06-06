@@ -10,11 +10,16 @@ jobs:
       MESSAGE: Hola mundo
 
     steps:
-      - name: Hola mundo
-        run: echo "$MESSAGE"
+      - name: Working dir
+        run: ls -al
+
+      - name: Action
+        uses: actions/checkout@v4
+        
+      - name: Working dir afetr action
+        run: ls -al
         
   second-job:
-    if: ${{ github.ref == 'refs/heads/main' }}
     needs: first-job
     runs-on: ubuntu-latest
 
